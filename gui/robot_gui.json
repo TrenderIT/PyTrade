@@ -1,0 +1,8 @@
+{
+    "account": "12312332345",
+    "portfolio": [
+        {"figi": "BBG00QPYJ5H2", "ratio": 0.2},
+        {"figi": "BBG00QPYJ5H2", "ratio": 0.4},
+        {"figi": "BBG00QPYJ5H1", "ratio": 1.4}
+    ]
+}
