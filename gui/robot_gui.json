@@ -1,8 +1,26 @@
 {
     "account": "12312332345",
+    "not_loaded_ratio": "0.1",
     "portfolio": [
-        {"figi": "BBG00QPYJ5H2", "ratio": 0.2},
-        {"figi": "BBG00QPYJ5H2", "ratio": 0.4},
-        {"figi": "BBG00QPYJ5H1", "ratio": 1.4}
+        {
+            "figi": "BBG00QPYJ5H3",
+            "ratio": "0.2"
+        },
+        {
+            "figi": "BBG00QPYJ5H2",
+            "ratio": "0.4"
+        },
+        {
+            "figi": "BBG00QPYJ5H1",
+            "ratio": "1.2"
+        },
+        {
+            "figi": "FG0000000000",
+            "ratio": "0.2"
+        },
+        {
+            "figi": "UUG00QPYJ5H1",
+            "ratio": "0.06"
+        }
     ]
 }
