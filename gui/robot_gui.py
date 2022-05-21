@@ -13,6 +13,7 @@ class RobotPreferences(Tk):
         self.account_id = StringVar()
         self.not_loaded_ratio = StringVar()
         self.list_frame = None
+        self.canvas = None
         self.tools = []
         self.create_base_gui_elements()
         self.load_robot_parameters(config_filename=self.get_config_filename())
@@ -89,7 +90,7 @@ class RobotPreferences(Tk):
                         i += 1
                 return
 
-        new_frame = ttk.Frame(self.list_frame, padding="3 3 3 3")
+        new_frame = ttk.Frame(self.canvas, padding="3 3 3 3")
 
         tool_variable = {'figi': StringVar(value=figi),
                          'ratio': StringVar(value=ratio),
@@ -141,6 +142,13 @@ class RobotPreferences(Tk):
 
         self.list_frame = ttk.Frame(main_frame, padding="0 20 0 20")
         self.list_frame.grid(column=1, row=3, sticky=(N, W, E, S), columnspan=5)
+
+        sb_ver = ttk.Scrollbar(self.list_frame, orient=VERTICAL)
+        sb_ver.pack(fill=Y, side=RIGHT, expand=FALSE)
+        self.canvas = Canvas(self.list_frame, bd=0, highlightthickness=0,
+                             yscrollcommand=sb_ver.set)
+        self.canvas.pack(side=LEFT, fill=BOTH, expand=TRUE)
+        sb_ver.config(command=self.canvas.yview)
 
         ttk.Button(main_frame,
                    text="Добавить инструмент",
