@@ -10,6 +10,7 @@ from tinkoff.invest import (
 from tinkoff.invest.services import Services
 import math
 import logging
+from sys import argv
 
 logging.basicConfig(filename='tinkoff_robot.log', format='%(asctime)s %(levelname)s:%(message)s', level=logging.INFO)
 
@@ -27,19 +28,23 @@ def cast_money(v):
     return v.units + v.nano / 1e9 # nano - 9 нулей
 
 def get_strategy():
-    strategy_json = """
-    {
-        "account": "12312332345",
-        "portfolio": [
-            {"figi": "BBG004730JJ5", "ratio": 0.2},
-            {"figi": "BBG004730N88", "ratio": 0.4},
-            {"figi": "BBG00QPYJ5H0", "ratio": 1.2},
-            {"figi": "FG0000000000", "ratio": 0.2}
-        ],
-        "not_loaded_ratio": 0.5    
-    }
-    """
-    return json.loads(strategy_json)
+    if len(argv) > 1:
+        return json.load(argv[1])
+    else:
+        strategy_json = """
+        {
+            "account": "12312332345",
+            "portfolio": [
+                {"figi": "BBG004730JJ5", "ratio": 0.2},
+                {"figi": "BBG004730N88", "ratio": 0.4},
+                {"figi": "BBG00QPYJ5H0", "ratio": 1.2},
+                {"figi": "FG0000000000", "ratio": 0.2}
+            ],
+            "not_loaded_ratio": 0.5    
+        }
+        """
+        return json.loads(strategy_json)
+
 
 class color:
     PURPLE = '\033[95m'
